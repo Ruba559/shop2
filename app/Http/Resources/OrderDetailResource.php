@@ -18,7 +18,7 @@ class OrderDetailResource extends JsonResource
             'id'=>$this->id,
             'product'=>new ProductResource($this->product),
             'quantity'=>$this->quantity,
-            'order'=>new OrderResource($this->order),
+            'order'=>$this->order,
             'total_price'=>$this->total_price,
             'price'=>$this->price,
         ];
