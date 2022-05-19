@@ -7,6 +7,7 @@ use App\Http\Controllers\api\CategoryController;
 use App\Http\Controllers\api\ProductController;
 use App\Http\Controllers\api\OrderController;
 use App\Http\Controllers\api\OrderDetailController;
+use App\Http\Controllers\api\ComplaintController;
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
@@ -25,6 +26,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('Product', ProductController::class);
     Route::resource('Order', OrderController::class);
     Route::resource('OrderDetail', OrderDetailController::class);
+    Route::resource('Complaint', ComplaintController::class);
 
     Route::get('/getNew',[OrderController::class,'getNew']);
     Route::get('/getShipping',[OrderController::class,'getShipping']);
@@ -34,6 +36,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/getProductByCategoryId/{id}',[ProductController::class,'getProductByCategoryId']);
     Route::get('/getProductByBrandId/{id}',[ProductController::class,'getProductByBrandId']);
     Route::get('/getOrderByDeliveryId/{id}',[OrderController::class,'getOrderByDeliveryId']);
+    Route::get('/getComplaintByUserId/{id}',[ComplaintController::class,'getComplaintByUserId']);
+    Route::get('/getComplaintByProductId/{id}',[ComplaintController::class,'getComplaintByProductId']);
 
 
 

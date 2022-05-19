@@ -3,10 +3,8 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\OrderDetailResource;
-use App\Models\OrderDetail;
 
-class OrderResource extends JsonResource
+class ComplaintResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,12 +17,9 @@ class OrderResource extends JsonResource
         return [
             'id'=>$this->id,
             'user'=>new UserResource($this->user),
-            'delivery'=>new UserResource($this->delivery),
-            'total_price'=>$this->total_price,
-            'status'=>$this->status,
-            'employee'=>new UserResource($this->employee),
-            'detail'=> OrderDetailResource::collection($this->details),
-        
+            'product'=>new ProductResource($this->product),
+            'description'=>$this->description,
+            'reply'=>$this->reply,
         ];
     }
 }
